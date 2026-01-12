@@ -64,7 +64,7 @@ Using Burp Suite Sequencer, I analyzed the randomness of the application's sessi
 * **Impact:** An attacker could mathematically predict valid session tokens and hijack any user's account without interaction. an attacker could easily brute force their way into user accounts 
 
 **Evidence:**
-[LINK TO YOUR SEQUENCER SCREENSHOT HERE])
+Brurtforce_and_weakSessionID_evidence
 
 ---
 
