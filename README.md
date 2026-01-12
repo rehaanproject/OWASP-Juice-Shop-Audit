@@ -38,7 +38,7 @@ The search function reflects user input directly to the browser (DOM) without pr
 * **Impact:** Execution of arbitrary code, capable of hijacking user sessions.
 
 **Evidence:**
-![XSS Alert Box]([LINK TO YOUR XSS SCREENSHOT HERE])
+![XSS Alert Box](XSS-Evidence)
 
 ---
 
