@@ -6,9 +6,17 @@
 **Tools Used:** Burp Suite Community (Proxy, Intruder, Repeater, Sequencer), Manual Analysis
 **Objective:** To identify and exploit OWASP Top 10 vulnerabilities in a modern web application and demonstrate the impact of weak security configurations.
 
+## 2.Tools Used 🛠️
+* **Burp Suite Community Edition:**
+    * **Proxy:** For intercepting and analyzing traffic.
+    * **Repeater:** For manual request manipulation.
+    * **Intruder:** For brute-forcing administrative passwords.
+    * **Sequencer:** For statistical analysis of session tokens.
+    * **Decoder:** For analyzing encoded data formats.
+
 ---
 
-## 2. Technical Findings
+## 3. Technical Findings
 
 ### Finding 01: Broken Authentication (SQL Injection)
 **Severity:** Critical 🔴
@@ -42,22 +50,23 @@ The search function reflects user input directly to the browser (DOM) without pr
 
 ---
 
-### Finding 03: Broken Authentication (Weak Session IDs)
+### Finding 03: Broken Authentication (Weak Session IDs), brute forcing admin password 
 **Severity:** Critical 🔴
-**Vulnerability Type:** Insufficient Session ID Entropy
+**Vulnerability Type:** Insufficient Session ID Entropy and weak password
 **Description:**
-Using Burp Suite Sequencer, I analyzed the randomness of the application's session tokens. The analysis returned a result of "Extremely Poor," indicating that tokens are generated using a predictable pattern.
+Using Burp Suite Sequencer, I analyzed the randomness of the application's session tokens. The analysis returned a result of "Extremely Poor," indicating that tokens are generated using a predictable pattern. then i tried to brute force admin account i got with sql injection with the help of intruder. i performed a simple snipe attack with a list of commonly used passwords
 
 **Proof of Concept:**
-* **Tool:** Burp Sequencer
+**
+* **Tool:** Burp Sequencer and burp intruder
 * **Sample Size:** ~200 Tokens
-* **Result:** 0 bits of effective entropy.
-* **Impact:** An attacker could mathematically predict valid session tokens and hijack any user's account without interaction.
+* **Result:** 0 bits of effective entropy and weak password detected 
+* **Impact:** An attacker could mathematically predict valid session tokens and hijack any user's account without interaction. an attacker could easily brute force their way into user accounts 
 
 **Evidence:**
-![Sequencer Graph]([LINK TO YOUR SEQUENCER SCREENSHOT HERE])
+[LINK TO YOUR SEQUENCER SCREENSHOT HERE])
 
 ---
 
-## 3. Reflection
+## 4. Reflection
 This project demonstrated the critical importance of **Input Validation** and **Secure Randomness**. By combining manual testing with statistical analysis tools like Burp Sequencer, I validated that security flaws often exist both in the visible interface and the invisible logic of the application.
