@@ -22,7 +22,7 @@ The application's login portal fails to properly sanitize user input. By injecti
 * **Impact:** Successful login as the Administrator (`admin@juice-sh.op`) without a valid password.
 
 **Evidence:**
-![SQL Injection Login]([LINK TO YOUR SQL SCREENSHOT HERE])
+![SQL Injection Login](SQL-Evidence)
 
 ---
 
